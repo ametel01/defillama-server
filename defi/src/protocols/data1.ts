@@ -619,7 +619,6 @@ const data: Protocol[] = [
     treasury: "tokenIon.js",
     twitter: "tokenlon",
     audit_links: ["https://cure53.de/pentest-report_imtoken.pdf"],
-    github: ["consenlabs"], //check
     deprecated: true,
     deadUrl: true,
   },
@@ -1869,20 +1868,21 @@ const data: Protocol[] = [
   },
   {
     id: "190",
-    name: "dHEDGE Vaults",
+    name: "Chamber Vaults",
+    previousNames: ["dHEDGE Vaults"],
     address: "0xca1207647ff814039530d7d35df0e1dd2e91fa84",
     symbol: "DHT",
-    url: "https://www.dhedge.org/",
-    description: "Explore the universe of top-tier tokenized vaults.",
+    url: "https://chamberfi.com/",
+    description: "Chamber, formerly dHEDGE, is a non-custodial vault protocol for creating and managing onchain vaults. The protocol uses smart contracts to manage how vaults interact with supported assets, integrations, and DeFi protocols. Chamber also powers products and strategies across its wider ecosystem, including Toros Finance and mStable.",
     chain: "Ethereum",
-    logo: `${baseIconsUrl}/dhedge-vaults.png`,
+    logo: `${baseIconsUrl}/chamber-vaults.jpg`,
     audits: "2",
     gecko_id: null,
     cmcId: null,
     category: "Indexes",
     chains: ["Ethereum", "Polygon", "Optimism", "Arbitrum"],
     module: "dhedge.js",
-    twitter: "dHedgeOrg",
+    twitter: "chamberfi",
     audit_links: ["https://docs.dhedge.org/security/audits-timeline"],
     parentProtocol: "parent#dhedge",
     dimensions: {
@@ -3346,6 +3346,7 @@ const data: Protocol[] = [
     audit_links: ["https://wasabix-finance.gitbook.io/wasabix_finance/code/certik-audit-report"],
     forkedFromIds: ["204"],
     github: ["wasabi-swap-team"],
+    deadUrl: true,
   },
   {
     id: "259",
@@ -5562,6 +5563,7 @@ const data: Protocol[] = [
     audit_links: ["https://doc.parrot.fi/security/"],
     openSource: false,
     stablecoins: ["parrot-usd"],
+    deadUrl: true,
   },
   {
     id: "359",
@@ -8692,6 +8694,7 @@ The eWIT token is a custodial, wrapped version of the Witnet coin managed by the
     parentProtocol: "parent#orion-protocol",
     audit_links: ["https://www.certik.org/projects/orionprotocol"],
     forkedFromIds: ["2197"],
+    deadUrl: true,
   },
   {
     id: "497",
@@ -10868,6 +10871,7 @@ The eWIT token is a custodial, wrapped version of the Witnet coin managed by the
     twitter: "ConvergenceFin",
     audit_links: ["https://www.certik.org/projects/convergencefinance"],
     forkedFromIds: ["2197"],
+    deadUrl: true,
   },
   {
     id: "596",
@@ -12172,6 +12176,7 @@ The eWIT token is a custodial, wrapped version of the Witnet coin managed by the
     module: "atrix.js",
     twitter: "AtrixProtocol",
     openSource: false,
+    deadUrl: true,
   },
   {
     id: "654",
@@ -25518,6 +25523,7 @@ The eWIT token is a custodial, wrapped version of the Witnet coin managed by the
     twitter: "thealphadex",
     forkedFromIds: ["2197"],
     listedAt: 1642569490,
+    deadUrl: true,
   },
   {
     id: "1286",

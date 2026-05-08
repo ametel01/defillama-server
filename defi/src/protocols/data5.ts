@@ -1329,6 +1329,7 @@ const data5: Protocol[] = [
     module: "vaultedge/index.js",
     twitter: "VaultedgeFi",
     listedAt: 1762287949,
+    deadUrl: true,
   },
   {
     id: "6950",
@@ -2750,8 +2751,9 @@ const data5: Protocol[] = [
     cmcId: null,
     tags: ['Hyperliquid HIP3 Deployer'],
     chains: ["Hyperliquid L1"],
-    module: "dummy.js",
+    module: "ventuals/index.js",
     twitter: "ventuals",
+    listedAt: 1778005545,
     dimensions: {
       derivatives: "ventuals",
       fees: "ventuals",
@@ -2774,7 +2776,7 @@ const data5: Protocol[] = [
     category: "Yield",
     chains: ["Ethereum"],
     module: "piku-dao/index.js",
-    treasury: "piku-dao",
+    treasury: "piku-dao.js", // need to add .js otherwise the link will be broken on the information page
     twitter: "piku_dao",
     audit_links: ["https://docs.piku.co/piku/piku/security-and-risks/audits"],
     github: ["piku-co"],
@@ -3063,6 +3065,7 @@ const data5: Protocol[] = [
     ],
     github: ["AltaiExchange"],
     listedAt: 1763830355,
+    deadUrl: true,
   },
   {
     id: "7024",
@@ -6959,8 +6962,18 @@ const data5: Protocol[] = [
     twitter: "kumbaya_xyz",
     listedAt: 1767124597,
     dimensions: {
-      fees: "kumbaya",
-      dexs: "kumbaya",
+      fees: {
+        adapter: "kumbaya",
+        genuineSpikes: [
+          ["2026-04-30", '-']
+        ]
+      },
+      dexs: {
+        adapter: "kumbaya",
+        genuineSpikes: [
+          ["2026-04-30", 'MegaETH token TGE']
+        ]
+      },
     },
   },
   {
@@ -7865,7 +7878,6 @@ const data5: Protocol[] = [
     forkedFromIds: ["3344"],
     module: "harborfi/index.js",
     twitter: "0xHarborFi",
-    github: ["baofinance"],
     audit_links: ["https://www.harborfinance.io/2025_10_21_Final_Harbor_Collaborative_Audit_Report_1761050317.pdf"],
     listedAt: 1768245639,
   },
@@ -8328,7 +8340,10 @@ const data5: Protocol[] = [
     module: "hastra/index.js",
     twitter: "HastraFi",
     audit_links: ["https://hastra.io/Hastra_vault-mint_&_vault-stake_Solana_Programs_Summary_Audit_Report.pdf"],
-    listedAt: 1768842285
+    listedAt: 1768842285,
+    dimensions: {
+      fees: "hastra",
+    },
   },
   {
     id: "7267",
@@ -11570,14 +11585,14 @@ const data5: Protocol[] = [
   },
   {
     id: "7420",
-    name: "Spreads Finance",
+    name: "Spreads Finance Yield",
     address: null,
     symbol: "-",
     url: "https://spreads.fi/",
     description:
       "Spreads Finance has a suite of DeFi products starting with a yield and points vault for users to passively earn yield via market neutral derivative strategies or points from tokenless DeFi markets, all via a vault.",
     chain: "Ethereum",
-    logo: `${baseIconsUrl}/spreads-finance.jpg`,
+    logo: `${baseIconsUrl}/spreads-finance-yield.jpg`,
     audits: "0",
     gecko_id: null,
     cmcId: null,
@@ -11585,6 +11600,7 @@ const data5: Protocol[] = [
     chains: ["Ethereum"],
     module: "spreads-fi/index.js",
     twitter: "spreads_fi",
+    parentProtocol: "parent#spreads-finance",
     listedAt: 1771346989
   },
   {
@@ -11642,7 +11658,6 @@ const data5: Protocol[] = [
     chains: ["Solana"],
     module: "minebtc/index.js",
     twitter: "minebtcdotfun",
-    github: ["LifeOrDream"],
     dimensions: {
       fees: "minebtc",
     },
@@ -12690,6 +12705,7 @@ const data5: Protocol[] = [
       },
     ],
     listedAt: 1772205522,
+    deadUrl: true,
   },
   {
     id: "7474",
@@ -14315,9 +14331,9 @@ const data5: Protocol[] = [
     name: "Orbit Finance",
     address: null,
     symbol: "-",
-    url: "https://orbitdex.io/en",
+    url: "https://markets.cipherlabsx.com",
     description:
-      "Perpetual futures with up to 300x leverage. Non-custodial, fully on-chain.",
+      "Orbit Finance is a DLMM (Dynamic Liquidity Market Maker) on Solana. Concentrated liquidity pools with configurable fee tiers, built on the CipherDLMM program.",
     chain: "Solana",
     logo: `${baseIconsUrl}/orbit-finance.jpg`,
     audits: "0",
@@ -15171,8 +15187,8 @@ const data5: Protocol[] = [
   {
     id: "7591",
     name: "Arbitrage Inc",
-    address: null,
-    symbol: "-",
+    address: "bsc:0x5EE54869Ecd5E752C31aF095187326D4A4D50e1c",
+    symbol: "ARBINC",
     url: "https://arbitrage-inc.exchange",
     description:
       "Arbitrage Inc is a DEX aggregator on BSC.",
@@ -15257,6 +15273,7 @@ const data5: Protocol[] = [
     module: "aave-v4/index.js",
     twitter: "aave",
     audit_links: ["https://aave.com/security"],
+    oraclesBreakdown: [ { name: "Chainlink", type: "Primary", proof: ["https://governance.aave.com/t/arfc-aave-v4-activation-on-ethereum-mainnet/24293/4", "https://aave.com/docs/ecosystem/oracle"]} ],
     listedAt: 1774886314,
     parentProtocol: "parent#aave",
     dimensions: {
@@ -15822,7 +15839,11 @@ const data5: Protocol[] = [
     chains: ["Tempo"],
     module: "tempo-stable-dex/index.js",
     twitter: "tempo",
+    parentProtocol: "parent#tempo-dex",
     listedAt: 1775162827,
+    dimensions: {
+      dexs: "tempo-stable-dex",
+    },
   },
   {
     id: "7621",
@@ -16131,6 +16152,7 @@ const data5: Protocol[] = [
     dimensions: {
       dexs: "farmcats-market",
     },
+    deadUrl: true
   },
   {
     id: "7636",
@@ -16380,6 +16402,9 @@ const data5: Protocol[] = [
     module: "saturn-protocol/index.js",
     twitter: "saturn_credit",
     listedAt: 1775766807,
+    dimensions: {
+      fees: "saturn-protocol",
+    }
   },
   {
     id: "7647",
@@ -16434,7 +16459,7 @@ const data5: Protocol[] = [
     chain: "Ethereum",
     logo: `${baseIconsUrl}/dexfi.jpg`,
     audits: "0",
-    gecko_id: 'dexfi-governance',
+    gecko_id: null,
     cmcId: null,
     category: "Yield Aggregator",
     chains: ["Ethereum", "Base", "Binance", "Arbitrum", "Sonic", "Avalanche"],
@@ -16566,7 +16591,8 @@ const data5: Protocol[] = [
     twitter: "thorwallet",
     audit_links: ["https://code4rena.com/reports/2025-02-thorwallet"],
     dimensions: {
-      fees: "thorwallet"
+      fees: "thorwallet",
+      dexs: "thorwallet",
     }
   },
   {
@@ -16902,7 +16928,8 @@ const data5: Protocol[] = [
     chains: ["Ethereum"],
     module: "dango-bridge/index.js",
     twitter: "dango",
-    listedAt: 1776224283
+    parentProtocol: "parent#dango",
+    listedAt: 1776224283,
   },
   {
     id: "7672",
@@ -17640,19 +17667,19 @@ const data5: Protocol[] = [
     name: "Yield AI",
     address: null,
     symbol: "-",
-    url: " ", // pending to add url https://yieldai.app/
+    url: "https://yieldai.app/",
     description:
-      "Yield AI is a DeFi dashboard for Aptos that integrates 10+ protocols and an AI Agent in one interface. Track balances and positions, compare APRs, and deposit, withdraw, swap, and claim rewards gaslessly to maximize yield",
+      "Yield AI is a DeFi dashboard for Aptos that integrates 10+ protocols and an AI Agent in one interface. Track balances and positions, compare APRs, and deposit, withdraw, swap, and claim rewards gaslessly — all to maximize your yield.",
     chain: "Aptos",
-    logo: `${baseIconsUrl}/yield-ai.jpg`,
+    logo: `${baseIconsUrl}/yield-ai.png`,
     audits: "0",
     gecko_id: null,
     cmcId: null,
-    category: "Yield Aggregator",
+    category: "AI Agents",
     chains: ["Aptos"],
     module: "yield-ai/index.js",
     twitter: "yieldai_app",
-    listedAt: 1776367461
+    listedAt: 1776370734,
   },
   {
     id: "7708",
