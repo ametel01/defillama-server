@@ -9,11 +9,9 @@ import { Protocol } from "../../protocols/types";
 import { protocolsById } from "../../protocols/data";
 import * as sdk from '@defillama/sdk';
 import { clearDimensionsCacheV2 } from "../utils/dimensionsUtils";
+import { getInternalDebugAuthError, normalizeDebugPGCacheKey } from "./internalRouteSecurity";
 
-
-const INTERNAL_SECRET_KEY = process.env.LLAMA_INTERNAL_ROUTE_KEY ?? process.env.LLAMA_PRO_API2_SECRET_KEY ?? process.env.API2_SUBPATH
-
-export function setInternalRoutes(router: HyperExpress.Router, routerBasePath: string) {
+export function setInternalRoutes(router: HyperExpress.Router, _routerBasePath: string) {
 
   // router.get('/_internal/all-protocol-data', getAllProtocolLatestData)
 
@@ -23,12 +21,12 @@ export function setInternalRoutes(router: HyperExpress.Router, routerBasePath: s
 
   async function debugHandler(req: any, res: any) {
     const fullPath = req.path;
-    const routerPath = fullPath.split('debug-pg')[1];
+    const routerPath = normalizeDebugPGCacheKey(fullPath.split('debug-pg')[1]);
+    const authError = getInternalDebugAuthError(req.headers)
+    if (authError) return errorResponse(res, authError.message, { statusCode: authError.statusCode })
+    if (!routerPath) return errorResponse(res, 'Invalid cache path', { statusCode: 400 })
+
     try {
-
-      if (process.env.API2_SKIP_SUBPATH === 'true')
-        if (!req.headers['x-internal-secret'] || req.headers['x-internal-secret'] !== INTERNAL_SECRET_KEY) throw new Error('Unauthorized')
-
       switch (req.method) {
         case 'GET':
           return res.json(await readFromPGCache(routerPath))

@@ -3,6 +3,12 @@ import { deleteProtocolCache } from '../../utils/r2'
 import { getDailyTvlCacheId, } from '../../api2/db'
 import path from 'path'
 
+function getInternalRouteSecret() {
+  const secret = process.env.LLAMA_INTERNAL_ROUTE_KEY
+  if (!secret) throw new Error('Missing required env var: LLAMA_INTERNAL_ROUTE_KEY')
+  return secret
+}
+
 export async function clearProtocolCache(protocolName: string) {
   const { data: protocols } = await axios.get('https://api.llama.fi/protocols')
   protocolName = protocolName.toLowerCase().trim()
@@ -31,7 +37,7 @@ export async function clearProtocolCacheById(protocolId: string) {
     let endpoint = path.join(url, 'debug-pg/', pgCaceId)
     await axios.delete(endpoint, {
       headers: {
-        'x-internal-secret': process.env.LLAMA_INTERNAL_ROUTE_KEY ?? process.env.LLAMA_PRO_API2_SECRET_KEY ?? process.env.API2_SUBPATH
+        'x-internal-secret': getInternalRouteSecret()
       }
     }).then(() => console.log(`Cache cleared for protocol ${protocolId}`))
     .catch(_e => console.log(`Failed to clear cache for protocol ${protocolId}`))
@@ -46,6 +52,10 @@ export async function clearProtocolCacheById(protocolId: string) {
 export async function clearAllDimensionsCache() {
   const { API2_DIMENSIONS_SERVER_URL } = process.env
   if (!API2_DIMENSIONS_SERVER_URL) throw new Error('Missing required env var: API2_DIMENSIONS_SERVER_URL')
-  await axios.delete(`${API2_DIMENSIONS_SERVER_URL}_internal/debug-pg/clear-dimensions-cache`)
+  await axios.delete(`${API2_DIMENSIONS_SERVER_URL}_internal/debug-pg/clear-dimensions-cache`, {
+    headers: {
+      'x-internal-secret': getInternalRouteSecret()
+    }
+  })
   return console.log("All dimensions cache cleared")
 }
