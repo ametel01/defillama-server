@@ -11,7 +11,11 @@ export function setInternalRoutes(router: HyperExpress.Router, _routerBasePath: 
     const authError = getInternalDebugAuthError(req.headers);
     if (authError) return errorResponse(res, authError.message, { statusCode: authError.statusCode });
 
-    const routerPath = normalizeDebugPGCacheKey(req.path.split("debug-pg")[1]);
+    const debugPrefix = "/debug-pg";
+    const debugPrefixIndex = req.path.indexOf(debugPrefix);
+    const routerPath = normalizeDebugPGCacheKey(
+      debugPrefixIndex === -1 ? "" : req.path.slice(debugPrefixIndex + debugPrefix.length)
+    );
     if (!routerPath) return errorResponse(res, "Invalid cache path", { statusCode: 400 });
 
     try {
