@@ -1113,13 +1113,12 @@ export const chainCoingeckoIds = {
   },
   "CSC": {
     geckoId: "coinex-token",
-    github: ["casinocoin"],
     symbol: "CET",
     cmcId: "2941",
     categories: ["EVM"],
     chainId: 52,
     dimensions: {
-      fees: "ripple",
+      fees: "csc",
     },
   },
   "Ergo": {
@@ -5246,6 +5245,9 @@ export const chainCoingeckoIds = {
     url: "https://mezo.org",
     github: ["mezo-org"],
     chainId: 31612,
+    dimensions: {
+      fees: "mezo",
+    },
   },
   "GateLayer": {
     geckoId: null,
@@ -5946,6 +5948,51 @@ export const chainCoingeckoIds = {
       fees: "robonomics",
     },
   },
+  "Fluent": {
+    geckoId: "fluent-network",
+    symbol: "BLEND",
+    cmcId: "39666",
+    categories: ["EVM"],
+    twitter: "fluentxyz",
+    url: "https://www.fluent.xyz/",
+    chainId: 25363,
+  },
+  "Pharos": {
+    geckoId: "pharos-network",
+    symbol: "PROS",
+    cmcId: "39682",
+    categories: ["EVM"],
+    twitter: "pharos_network",
+    url: "https://www.pharos.xyz/",
+    chainId: 1672,
+  },
+  "Arweave": {
+    geckoId: "arweave",
+    symbol: "AR",
+    cmcId: "5632",
+    twitter: "ArweaveEco",
+    url: "https://arweave.org/",
+    dimensions: {
+      fees: "arweave",
+    },
+  },
+  "Dango Mainnet": {
+    geckoId: null,
+    symbol: null,
+    cmcId: null,
+    twitter: "dango",
+    url: "https://dango.exchange/",
+  },
+  "RISE": {
+    geckoId: "rise-chain",
+    symbol: "RISE",
+    cmcId: null,
+    twitter: "risechain",
+    url: "https://risechain.com/",
+    dimensions: {
+      fees: "rise",
+    },
+  },
 } as unknown as ChainCoinGekcoIds;
 
 // We are creating the list here because, later in the code, we include historical chain labels with the same chain metadata, so, chainCoingeckoIds will have duplicate keys
@@ -6198,6 +6245,8 @@ const chainLabelMap = {
   "neuroweb": "NeuroWeb",
   "mythos": "Mythos",
   "heima": "Heima",
+  "dango": "Dango",
+  "rise": "RISE",
 } as { [key: string]: string }
 
 // When we decide to change the display name of a chain, we add the mapping for the new name here
@@ -6253,6 +6302,7 @@ const newChainLabelMap = {
   "mantra": "MANTRA",
   "orderly": "Orderly Network",
   "area": "Areum Network",
+  "dango": "Dango Mainnet",
 } as { [key: string]: string }
 
 const allChainLabelMap = {

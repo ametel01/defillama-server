@@ -501,7 +501,6 @@ const data2: Protocol[] = [
     ],
     listedAt: 1644685001,
     governanceID: ["snapshot:moonwell-apollo-governance.eth"],
-    github: ["moonwell-fi"],
     dimensions: {
       fees: "moonwell-apollo"
     }
@@ -1553,6 +1552,7 @@ const data2: Protocol[] = [
     listedAt: 1645572803,
     github: ["impactMarket"],
     deadUrl: true,
+    deprecated: true
   },
   {
     id: "1450",
@@ -1685,7 +1685,8 @@ const data2: Protocol[] = [
     listedAt: 1645643108,
     dimensions: {
       dexs: "claimswap"
-    }
+    },
+    deadUrl: true,
   },
   // {
   //   id: "1456",
@@ -3612,6 +3613,7 @@ const data2: Protocol[] = [
     module: "drip/index.js",
     twitter: "DRIPcommunity",
     listedAt: 1647236017,
+    deadUrl: true,
   },
   {
     id: "1544",
@@ -4822,7 +4824,11 @@ const data2: Protocol[] = [
     wrongLiquidity: true,
     dimensions: {
       fees: {
-        genuineSpikes: [["2024-08-05", "-"], ["2025-02-03", "-"]],
+        genuineSpikes: [
+          ["2024-08-05", "-"], 
+          ["2025-02-03", "-"],
+          ["2026-05-06", "Kelp DAO exploiter's positions liquidated"], //https://x.com/aave/status/2052100832834036187 , https://etherscan.io/tx/0xe2391ea418e16d70196ca3d77dfc836cca1096eebf65e423d52ad867b416478f
+        ],
         adapter: "aave-v3"
       }
     }
@@ -6373,14 +6379,14 @@ const data2: Protocol[] = [
   },
   {
     id: "1670",
-    name: "Monster",
+    name: "Monster Gameverse",
     address: "fantom:0x152888854378201e173490956085c711f1DeD565",
     symbol: "MST",
     url: "https://www.metaland.game",
     description:
       "Metaland is the first play-to-earn game based on Andre Cronje's Rarity Manifested, a Dungeons And Dragons-inspired character creator on the Fantom Opera blockchain.",
     chain: "Fantom",
-    logo: `${baseIconsUrl}/monster.png`,
+    logo: `${baseIconsUrl}/monster-gameverse.png`,
     audits: "0",
     gecko_id: "metaland-gameverse",
     cmcId: "15395",
@@ -9308,7 +9314,7 @@ const data2: Protocol[] = [
     url: "https://www.zeta.markets",
     description: "Zeta Markets is the premier derivatives protocol on Solana.",
     chain: "Solana",
-    logo: `${baseIconsUrl}/zeta.png`,
+    logo: `${baseIconsUrl}/zeta.jpg`,
     audits: "0",
     gecko_id: "zeta",
     cmcId: "32002",
@@ -9318,7 +9324,8 @@ const data2: Protocol[] = [
     module: "zeta/index.js",
     twitter: "ZetaMarkets",
     listedAt: 1654452112,
-    github: ["zetamarkets"],
+    deprecated: true,
+    parentProtocol: "parent#bullet",
     dimensions: {
       derivatives: "zeta"
     }
@@ -9870,7 +9877,6 @@ const data2: Protocol[] = [
     audit_links: ["https://gfx.cafe/ip/contracts/-/blob/master/audit/GFX_IP_Protocol_Audit_Report.pdf"],
     listedAt: 1655545050,
     stablecoins: ["interest-protocol"],
-    github: ["interest-protocol"],
   },
   {
     id: "1830",
@@ -11164,7 +11170,8 @@ const data2: Protocol[] = [
         message: "Avault has some red flags and multiple users have reported concerns. Be careful.",
         level: "alert",
       }
-    ]
+    ],
+    deadUrl: true,
   },
   {
     id: "1888",
@@ -17050,7 +17057,7 @@ const data2: Protocol[] = [
     gecko_id: null,
     cmcId: null,
     tags: ["AMM"],
-    chains: ["Polygon", "Kava", "Metis", "Optimism"],
+    chains: ["Polygon", "Metis", "Optimism"],
     module: "sushiswap-trident/index.js",
     twitter: "SushiSwap",
     parentProtocol: "parent#sushi",
@@ -19575,7 +19582,8 @@ const data2: Protocol[] = [
     parentProtocol: "parent#helix",
     listedAt: 1668004664,
     dimensions: {
-      dexs: "helix-helix"
+      dexs: "helix-helix",
+      fees: "helix-helix"
     }
   },
   {
@@ -20931,7 +20939,8 @@ const data2: Protocol[] = [
     github: ["openbook-dex"],
     dimensions: {
       dexs: "openbook"
-    }
+    },
+    deadUrl: true,
   },
   {
     id: "2323",
@@ -22936,7 +22945,8 @@ const data2: Protocol[] = [
     listedAt: 1672970801,
     parentProtocol: "parent#blur",
     dimensions: {
-      fees: "blur"
+      fees: "blur",
+      dexs: "blur"
     }
   },
   {
@@ -23410,7 +23420,7 @@ const data2: Protocol[] = [
     twitter: "Arcade_xyz",
     audit_links: ["https://docs.arcade.xyz/docs/audit-reports"],
     listedAt: 1673781145,
-    github: ["arcadexyz", "PawnFi"],
+    github: ["arcadexyz"],
   },
   /*
   {
@@ -24450,6 +24460,7 @@ const data2: Protocol[] = [
     forkedFromIds: ["2197"],
     parentProtocol: "parent#hiveswap",
     listedAt: 1675271563,
+    deadUrl: true,
     dimensions: {
       dexs: "hiveswap"
     }
@@ -24998,6 +25009,7 @@ const data2: Protocol[] = [
     dimensions: {
       fees: "hawkfi",
     },
+    deadUrl: true,
   },
   {
     id: "2512",
@@ -26060,6 +26072,7 @@ const data2: Protocol[] = [
     oracles: ["0x"],
     audit_links: ["https://github.com/Alongside-Finance/Audits"],
     listedAt: 1676985047,
+    deadUrl: true,
   },
   {
     id: "2560",
